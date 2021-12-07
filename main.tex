@@ -1,0 +1,57 @@
+\documentclass[a4paper]{report}
+
+\usepackage{type1cm}
+\usepackage{graphicx} % insert figures
+\usepackage{hyperref} % generate bookmark
+\hypersetup{hidelinks, % eliminate red link pattern
+	colorlinks=true,
+	allcolors=black,
+	pdfstartview=Fit,
+	breaklinks=true
+}
+
+\usepackage[textwidth=13.5cm]{geometry}
+\usepackage{blindtext}
+\parindent=0pt
+
+\usepackage{xcolor}
+\definecolor{ultramarine}{rgb}{0, 0.125, 0.376}
+
+\newcommand{\review}[1]{\textcolor{ultramarine}{(#1)}} % for review mark from advisor
+\newcommand{\refchapter}[1]{Chapter \ref{#1}} %e.g.Chapter 1
+\newcommand{\refsection}[1]{Section \ref{#1}} %e.g.Section 2.1
+\newcommand{\reftable}[1]{Table \ref{#1}} %e.g.Table 1.1
+\newcommand{\reffigure}[1]{Figure \ref{#1}} %e.g.Figure 1.1
+
+
+\begin{document}
+\begin{sloppypar}
+
+\input{title.tex}
+\input{abstract.tex}
+
+\pagebreak\setcounter{page}{1}
+\pagenumbering{roman} % I, II, III, IV 
+\pagestyle{plain}
+\tableofcontents
+\listoffigures
+\listoftables
+
+\pagebreak\setcounter{page}{1}
+\pagenumbering{arabic} % 1,2,3
+\pagestyle{plain}
+
+
+\input{chapter/1-introduction.tex}
+\input{chapter/2-relatedwork.tex}
+\input{chapter/3-conclusion.tex}
+\input{chapter/acknowledgements.tex}
+
+
+\newpage
+\addcontentsline{toc}{chapter}{\numberline{}Bibliography}
+\bibliographystyle{unsrt}
+\bibliography{ref}
+
+\end{sloppypar}
+\end{document}
